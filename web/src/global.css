@@ -1,0 +1,83 @@
+@import url("https://use.typekit.net/odn2eai.css");
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #d90429;
+    --background-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent-color: #ffcc00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, p {
+    font-family: 'elza-narrow', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-weight: 300;   
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'elza-narrow', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+h1 {
+    font-family: 'zuume-cut', sans-serif;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+body {
+    font-size: 1rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    padding: 2rem 0;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.text-highlight {
+    color: var(--accent-color);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
