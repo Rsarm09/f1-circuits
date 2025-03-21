@@ -9,9 +9,7 @@ export default function AddCircuitModal({onCircuitAdded}) {
   return (
     <>
         <button onClick={() => setShowModal(true)}>Add Circuit</button>
-        {showModal && createPortal( <ModalContent onCircuitAdded={onCircuitAdded} onClose={() => setShowModal(false)} /> ,document.body)}
-
-    
+        {showModal && createPortal( <ModalContent onCircuitAdded={onCircuitAdded} onClose={() => setShowModal(false)} /> ,document.body)}    
     </>
   )
 }

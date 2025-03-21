@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../global.css";
-import m from "./AddCircuitModalContent.module.css"
+import m from "./CircuitModalContent.module.css"
 
 export default function ModalContent({ onClose, onCircuitAdded }) {
 
@@ -58,7 +58,6 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
                 });
         }
 
-        // Convert to numbers and validate
         const lengthKmParsed = circuitLength ? parseFloat(circuitLength) : null;
         const turnsParsed = circuitTurns ? parseInt(circuitTurns, 10) : null;
 

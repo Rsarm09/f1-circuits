@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './AllCircuits.css';
 import '../global.css';
 import AddCircuitModal from '../components/AddCircuitModal';
+import CircuitFilters from '../components/CircuitFilters';
+import DeleteCircuitModal from '../components/DeleteCircuitModal';
+import UpdateCircuitModal from '../components/UpdateCircuitModal';
 
 function AllCircuits() {
 
@@ -30,6 +33,10 @@ function AllCircuits() {
         <div>
             <AddCircuitModal onCircuitAdded={fetchCircuits} />
         </div>
+        <div>
+            <h3>Filters</h3>
+            <CircuitFilters updateCircuits={handleUpdatedCircuits}/>
+        </div>
         {circuits.map(circuit => {
             return(
                 <div key={circuit.id}>
@@ -38,6 +45,8 @@ function AllCircuits() {
                     <h3>{circuit.location}</h3>
                     <h3>{circuit.category}</h3>
                     <p>{circuit.description}</p>
+                    <DeleteCircuitModal onCircuitDeleted={fetchCircuits} circuit={circuit}/>
+                    <UpdateCircuitModal onCircuitUpdated={fetchCircuits} circuit={circuit}/>
                 </div>
             )
         })}
