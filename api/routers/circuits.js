@@ -108,7 +108,7 @@ circuitsRouter.put('/:id', upload.single('image'), (req, res) => {
     if (req.file) {
         updateCircuitSQL += `, image = ?`;
         queryParams.push(req.file.filename);
-    }
+    }   
 
     updateCircuitSQL += `WHERE id = ? LIMIT 1`;
     queryParams.push(id);
