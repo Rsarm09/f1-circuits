@@ -12,4 +12,19 @@ categoriesRouter.get('/', (req, res) => {
     });
 });
 
+categoriesRouter.post("/", (req, res) => {
+    const {name} = req.body;
+
+    const addCategorySQL = `INSERT INTO categories (name) VALUES (?)`;
+
+    db.query(addCategorySQL, [name], (err, results) => {
+        if(err) {
+            console.error(err);
+            return res.status(500).send("Database error occurred.");
+        }
+
+        res.json({message: 'Category added successfully', categoryId: results.insertId});
+    });
+});
+
 module.exports = categoriesRouter;

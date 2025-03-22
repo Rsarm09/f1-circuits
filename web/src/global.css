@@ -146,3 +146,8 @@ button:hover::before {
     color: #000;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
+img {
+    margin: 2rem;
+    width: 70%;
+}
