@@ -6,13 +6,13 @@ import "../global.css";
 export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, circuit }) {
   const [dbCategories, setDbCategories] = useState([]);
   const [categories, setCategories] = useState(circuit.category_id ?? "");
-  const [name, setName] = useState(circuit.name);
   const [image, setImage] = useState("");
   const [isNewCategory, setIsNewCategory] = useState(false);
   const [newCategory, setNewCategory] = useState("");
 
   const [circuitName, setCircuitName] = useState(circuit.name ?? "");
-  const [circuitLocation, setCircuitLocation] = useState(circuit.location ?? "");
+  const [circuitCity, setCircuitCity] = useState(circuit.city ?? "");
+  const [circuitCountry, setCircuitCountry] = useState(circuit.country ?? "");
   const [circuitLength, setCircuitLength] = useState(circuit.length_km ?? "");
   const [circuitTurns, setCircuitTurns] = useState(circuit.turns ?? "");
   const [circuitDescription, setCircuitDescription] = useState(circuit.description ?? "");
@@ -58,7 +58,8 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
     const formData = new FormData();
     formData.append("category_id", categoryId);
     formData.append("name", circuitName);
-    formData.append("location", circuitLocation);
+    formData.append("city", circuitCity);
+    formData.append("country", circuitCountry);
     formData.append("length_km", circuitLength);
     formData.append("turns", circuitTurns);
     formData.append("description", circuitDescription);
@@ -119,13 +120,21 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
               value={circuitName}
               onChange={(e) => setCircuitName(e.target.value)}
             />
-            <label htmlFor="location">Location</label>
+            <label htmlFor="city">City</label>
             <input
               type="text"
-              name="location"
-              id="location"
-              value={circuitLocation}
-              onChange={(e) => setCircuitLocation(e.target.value)}
+              name="city"
+              id="city"
+              value={circuitCity}
+              onChange={(e) => setCircuitCity(e.target.value)}
+            />
+            <label htmlFor="country">Country</label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              value={circuitCountry}
+              onChange={(e) => setCircuitCountry(e.target.value)}
             />
             <label htmlFor="description">Description</label>
             <input

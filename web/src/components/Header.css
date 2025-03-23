@@ -1,0 +1,19 @@
+.main-container {
+    margin: auto;
+    width: 100%;
+    max-width: max-content;
+    padding: 15em 0;
+}
+.main-title {
+    font-size: 35rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: 'elza-narrow', sans-serif;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 0;
+}

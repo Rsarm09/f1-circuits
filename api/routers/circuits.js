@@ -39,14 +39,14 @@ circuitsRouter.get('/', (req, res) => {
 
 circuitsRouter.post('/', upload.single('image'), (req, res) => {
 
-    const { category_id, name, location, length_km, turns, description } = req.body;
+    const { category_id, name, city, country, length_km, turns, description } = req.body;
 
     const image = req.file.filename;
 
-    const addCircuitSQL = `INSERT INTO circuits (category_id, name, location, length_km, turns, description, image ) 
-        VALUES (?, ?, ?, ?, ?, ?, ?)`
+    const addCircuitSQL = `INSERT INTO circuits (category_id, name, city, country, length_km, turns, description, image ) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
 
-    db.query(addCircuitSQL, [category_id, name, location, length_km, turns, description, image], (err, results) => {
+    db.query(addCircuitSQL, [category_id, name, city, country, length_km, turns, description, image], (err, results) => {
         if (err) {
             console.error(err);
             return res.status(500).send('Error has ocurred');
@@ -97,13 +97,13 @@ circuitsRouter.delete('/:id', (req, res) => {
 circuitsRouter.put('/:id', upload.single('image'), (req, res) => {
     const {id} = req.params;
 
-    const { category_id, name, location, length_km, turns, description } = req.body;
+    const { category_id, name, city, country, length_km, turns, description } = req.body;
 
     let updateCircuitSQL = `
     UPDATE circuits
-    SET name = ?, location = ?, length_km = ?, turns = ?, description = ?, category_id = ?`;
+    SET name = ?, city = ?, country = ?, length_km = ?, turns = ?, description = ?, category_id = ?`;
 
-    const queryParams = [name, location, length_km, turns, description, category_id];
+    const queryParams = [name, city, country, length_km, turns, description, category_id];
 
     if (req.file) {
         updateCircuitSQL += `, image = ?`;

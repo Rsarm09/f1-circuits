@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {createPortal} from "react-dom";
 import ModalContent from "./AddCircuitModalContent";
+import '../global.css';
 
 export default function AddCircuitModal({onCircuitAdded}) {
 
@@ -8,7 +9,7 @@ export default function AddCircuitModal({onCircuitAdded}) {
 
   return (
     <>
-        <button onClick={() => setShowModal(true)}>Add Circuit</button>
+        <button onClick={() => setShowModal(true)} className="newCircuit-btn">Add New Circuit</button>
         {showModal && createPortal( <ModalContent onCircuitAdded={onCircuitAdded} onClose={() => setShowModal(false)} /> ,document.body)}    
     </>
   )

@@ -1,5 +1,4 @@
 .container {
-    display: block;
     position: relative;
     padding-left: 40px; 
     margin-bottom: 12px;
@@ -50,7 +49,6 @@
     display: block;
   }
   
-  /* Style the checkmark */
   .container .checkmark:after {
     left: 9px;
     top: 5px;
@@ -60,4 +58,10 @@
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
   }
+
+  .clear-btn {
+    width: 50%;
+    background: #fff;
+    color: var(--secondary-color);
   
+  }

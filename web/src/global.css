@@ -23,7 +23,7 @@ body, p {
     font-weight: 300;   
 }
 
-h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
     font-family: 'elza-narrow', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -32,17 +32,19 @@ h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-family: 'zuume-cut', sans-serif;
-    text-transform: uppercase;
+    font-family: "zuume-edge", sans-serif;
+    font-style: italic;    
     color: var(--primary-color);
 }
 
-h1 {
+
+h2 {
+    font-family: 'Zen dots', sans-serif;
     font-size: 3rem;
 }
 
-h2 {
-    font-size: 3rem;
+h3 {
+    font-size: 2rem;
 }
 
 body {
@@ -55,35 +57,15 @@ body {
     margin: auto;
 }
 
-.section {
-    padding: 2rem 0;
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.text-highlight {
-    color: var(--accent-color);
-}
-
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.flex {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
-
 button {
-    width: 100%;
+    font-family: 'Zen dots', sans-serif;
+    width: 50%;
     padding: 1rem;
     background: var(--secondary-color);
     color: var(--primary-color);
@@ -91,15 +73,15 @@ button {
     font-weight: 600;
     text-transform: uppercase;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     margin-top: 1rem;
+    border-radius: 0;
 }
 
 button:hover {
     background: var(--accent-color);
-    color: #000;
+    color: var(--secondary-color);
 }
 button {
     position: relative;
@@ -131,23 +113,37 @@ button:hover::before {
     color: var(--primary-color, #fff);
     font-size: 1.2rem;
     font-weight: bold;
-    border: 2px solid var(--secondary-color);
-    border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin: 1rem;
 }
 
 .close-button:hover {
     background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: #000;
+    color: var(--secondary-color);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-img {
-    margin: 2rem;
-    width: 70%;
+.newCircuit-btn {
+    width: 100%;
 }
+
+
+img {
+    margin: 1rem 0;
+    width: 100%;
+
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .dropdown-btn {
+    width: 20%;
+  }
+  

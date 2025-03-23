@@ -6,7 +6,8 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
     const [dbCategories, setDbCategories] = useState([]);
     const [category, setCategory] = useState('');
     const [circuitName, setCircuitName] = useState('');
-    const [circuitLocation, setCircuitLocation] = useState('');
+    const [circuitCity, setCircuitCity] = useState('');
+    const [circuitCountry, setCircuitCountry] = useState('');
     const [circuitDescription, setCircuitDescription] = useState('');
     const [circuitLength, setCircuitLength] = useState('');
     const [circuitTurns, setCircuitTurns] = useState('');
@@ -68,7 +69,7 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
         const lengthKmParsed = parseFloat(circuitLength);
         const turnsParsed = parseInt(circuitTurns, 10);
 
-        if (!circuitName || !circuitLocation || isNaN(lengthKmParsed) || isNaN(turnsParsed) || !circuitDescription || !image) {
+        if (!circuitName || !circuitCity || !circuitCountry || isNaN(lengthKmParsed) || isNaN(turnsParsed) || !circuitDescription || !image) {
             alert("Please fill in all fields correctly.");
             return;
         }
@@ -77,7 +78,8 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
         const formData = new FormData();
         formData.append("category_id", categoryId);
         formData.append("name", circuitName);
-        formData.append("location", circuitLocation);
+        formData.append("city", circuitCity);
+        formData.append("country", circuitCountry);
         formData.append("length_km", circuitLength);
         formData.append("turns", circuitTurns);
         formData.append("description", circuitDescription);
@@ -106,7 +108,7 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
     return (
         <div>
             <form onSubmit={handleFormSubmit} encType="multipart/form-data" className={m['form-container']}>
-                <h2>Add Circuit</h2>
+                <h2>Add New Circuit</h2>
                 <button type="button" onClick={onClose} className='close-button'>X</button>
                 <div>
                     <label htmlFor="category">Category</label>
@@ -136,19 +138,23 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
                     <input type="text" id="circuitName" onChange={(e) => setCircuitName(e.target.value)} />
                 </div>
                 <div>
-                    <label htmlFor="circuitLocation">Circuit Location</label>
-                    <input type="text" id="circuitLocation" onChange={(e) => setCircuitLocation(e.target.value)} />
+                    <label htmlFor="circuitCity">City</label>
+                    <input type="text" id="circuitCity" onChange={(e) => setCircuitCity(e.target.value)} />
                 </div>
                 <div>
-                    <label htmlFor="circuitLength">Circuit Length (km)</label>
+                    <label htmlFor="circuitCountry">Country</label>
+                    <input type="text" id="circuitCountry" onChange={(e) => setCircuitCountry(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="circuitLength">Length (km)</label>
                     <input type="number" id="circuitLength" step="0.01" onChange={(e) => setCircuitLength(e.target.value)} />
                 </div>
                 <div>
-                    <label htmlFor="circuitTurns">Circuit Turns</label>
+                    <label htmlFor="circuitTurns">Turns</label>
                     <input type="number" id="circuitTurns" onChange={(e) => setCircuitTurns(e.target.value)} />
                 </div>
                 <div>
-                    <label htmlFor="circuitDescription">Circuit Description</label>
+                    <label htmlFor="circuitDescription">Description [255 Char]</label>
                     <input type="text" id="circuitDescription" onChange={(e) => setCircuitDescription(e.target.value)} />
                 </div>
                 <div>
