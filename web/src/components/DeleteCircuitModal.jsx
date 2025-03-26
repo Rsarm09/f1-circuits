@@ -8,7 +8,7 @@ export default function DeleteCircuitModal({circuit, onCircuitDeleted}) {
   
     return (
     <>
-        <button onClick={() => {setShowModal(true)}}>Delete</button>
+        <button className='delete-btn' onClick={() => {setShowModal(true)}}>Delete</button>
         
         {showModal && createPortal(
             <DeleteCircuitModalContent

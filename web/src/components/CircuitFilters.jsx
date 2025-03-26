@@ -63,8 +63,8 @@ export default function CircuitFilters({ updateCircuits }) {
                     ))}
 
                     <div className="btn-container">
-                        <button type="submit" className={m["clear-btn"]} onClick={handleUncheckAll}>Clear Filter</button>
                         <button type="submit">Filter</button>
+                        <button type="submit" className={m["clear-btn"]} onClick={handleUncheckAll}>Clear Filter</button>
                     </div>
                 </div>
             </form>

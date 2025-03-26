@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import m from "./UpdateCircuitModalContent.module.css";
 import m2 from "./CircuitModalContent.module.css";
 import "../global.css";
 
@@ -79,7 +78,7 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
 
   return (
     <div>
-      <div className={m["form-container"]}>
+      <div className={m2["form-container"]}>
         <h3>Edit Circuit</h3>
         <form onSubmit={handleFormSubmit} encType="multipart/form-data">
           <div>
@@ -155,7 +154,7 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
             />
           </div>
           <div>
-            <button type="submit">Save</button>
+            <button type="submit" className="full-btn">Save</button>
           </div>
         </form>
         <button onClick={onClose} className='close-button'>

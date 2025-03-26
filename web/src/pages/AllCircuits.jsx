@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './AllCircuits.css';
 import '../global.css';
 import '../RaceBtn.css';
 import AddCircuitModal from '../components/AddCircuitModal';
@@ -29,10 +28,17 @@ function AllCircuits() {
 
     }, [])
 
+    const scrollToElement = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({behavior: 'smooth'});
+        }
+    }
+
 
     return (
         <>
-            <div className='container'>
+            <div className='container'  id='circuit-list'>
                 <div>
                     <button className="dropdown-btn" onClick={() => setFiltersOpen(!filtersOpen)}>
                         {filtersOpen ? "Filters ▲" : "Filters ▼"}
@@ -40,13 +46,13 @@ function AllCircuits() {
 
                     {filtersOpen && <CircuitFilters updateCircuits={handleUpdatedCircuits} />}
                 </div>
-                <div className='racebtn-container'>
+                <div className='racebtn-container' >
                     {circuits.map(circuit => {
                         return (
                             <div key={circuit.id}>
-                                <button class="race-btn">
-                                    <span class="city">{circuit.city}</span>
-                                    <span class="country">{circuit.country}</span>
+                                <button className="race-btn" onClick={() => scrollToElement(circuit.id)}>
+                                    <span className="city">{circuit.city}</span>
+                                    <span className="country">{circuit.country}</span>
                                 </button>
                             </div>
                         )
@@ -55,16 +61,23 @@ function AllCircuits() {
                 <AddCircuitModal onCircuitAdded={fetchCircuits} />
                 {circuits.map(circuit => {
                     return (
-                        <div key={circuit.id}>
+                        <div key={circuit.id} id={circuit.id}>
                             <img src={`http://localhost:3000/images/${circuit.image}`} alt="" />
                             <h2>{circuit.name}</h2>
                             <h3>{circuit.city}, {circuit.country}</h3>
-                            <h3>{circuit.category}</h3>
+                            <h4>{circuit.category}</h4>
                             <p>{circuit.description}</p>
+                            <div className='flex'>
+                                <h4>Turns:</h4>
+                                <p>{circuit.turns}</p>
+                                <h4>Length:</h4>
+                                <p>{circuit.length_km} km</p>
+                            </div>
                             <div className="btn-container">
                                 <UpdateCircuitModal onCircuitUpdated={fetchCircuits} circuit={circuit} />
                                 <DeleteCircuitModal onCircuitDeleted={fetchCircuits} circuit={circuit} />
                             </div>
+                            <button className='full-btn' onClick={() => scrollToElement('circuit-list')}>Back to Circuit List</button>
                         </div>
                     )
                 })}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import {createPortal} from "react-dom";
 import ModalContent from "./CircuitFilters";
 
-export default function CircuitFiltersModal({updateCircuits}) {
+export default function CircuitFiltersModal({}) {
 
     const [showModal, setShowModal] = useState(false);
 
