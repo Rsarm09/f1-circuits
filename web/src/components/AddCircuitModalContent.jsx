@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import "../global.css";
 import m from "./CircuitModalContent.module.css"
 
+//Add circuit modal displaying form that allows someone to create a new circuit
+
 export default function ModalContent({ onClose, onCircuitAdded }) {
+    //state declarations for the form
     const [dbCategories, setDbCategories] = useState([]);
     const [category, setCategory] = useState('');
     const [circuitName, setCircuitName] = useState('');
@@ -15,6 +18,7 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
     const [isNewCategory, setIsNewCategory] = useState(false);
     const [newCategory, setNewCategory] = useState('');
 
+    //Fetch category data to classify new circuits under a chosen category
     useEffect(() => {
         fetch("http://localhost:3000/categories")
             .then((res) => res.json())
@@ -26,6 +30,8 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
             });
     }, []);
 
+    //used for category dropdown for users to classify each circuit, this will check if the user
+    //   creates a new category
     const handleCategoryChange = (event) => {
         if (event.target.value === "-1") {
             setIsNewCategory(true);
@@ -36,6 +42,8 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
         }
     };
 
+    //Submits the new circuit asynchronously
+    //fetches the category list and appends user created category if they make a new one
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -66,15 +74,17 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
             }
         }
 
+        //checks and changes the length/turns of a circuit if theyre the appropriate variable type
         const lengthKmParsed = parseFloat(circuitLength);
         const turnsParsed = parseInt(circuitTurns, 10);
 
+        //stops submission if the user has not completed the form
         if (!circuitName || !circuitCity || !circuitCountry || isNaN(lengthKmParsed) || isNaN(turnsParsed) || !circuitDescription || !image) {
             alert("Please fill in all fields correctly.");
             return;
         }
 
-
+        //Appends formdata to the database if submission is successful, changes the state
         const formData = new FormData();
         formData.append("category_id", categoryId);
         formData.append("name", circuitName);
@@ -85,21 +95,26 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
         formData.append("description", circuitDescription);
         formData.append("image", image);
 
+        //grabs the circuit data in a try catch block in case of errors
         try {
             const circuitResponse = await fetch("http://localhost:3000/circuits", {
                 method: "POST",
                 body: formData,
             });
 
+            //brings back circuit data in json format
             const circuitData = await circuitResponse.json();
 
+            //checks if the response is available, if not, it will display an error
             if (!circuitResponse.ok) {
                 throw new Error(circuitData.error || "Failed to add circuit");
             }
 
+            //adds circuit and closes the modal
             onCircuitAdded();
             onClose();
         } catch (error) {
+            //catches errors and displays them
             console.error("Error adding circuit:", error);
             alert("Failed to add circuit.");
         }
@@ -107,6 +122,7 @@ export default function ModalContent({ onClose, onCircuitAdded }) {
 
     return (
         <div>
+            {/* add a circuit form */}
             <form onSubmit={handleFormSubmit} encType="multipart/form-data" className={m['form-container']}>
                 <h2>Add New Circuit</h2>
                 <button type="button" onClick={onClose} className='close-button'>X</button>

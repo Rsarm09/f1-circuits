@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import DeleteCircuitModalContent from './DeleteCircuitModalContent';
 import '../global.css';
 
+// Delete modal + button
 export default function DeleteCircuitModal({circuit, onCircuitDeleted}) {
   const [showModal, setShowModal] = useState(false)
   

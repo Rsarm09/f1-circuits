@@ -2,6 +2,7 @@ const express = require('express');
 const categoriesRouter = express.Router();
 const db = require('../db');
 
+// categories router file -> Allows users to get all categories for filtering and post a new category
 
 categoriesRouter.get('/', (req, res) => {
     db.query(`SELECT * FROM categories`, (error, results) => {

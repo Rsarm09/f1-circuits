@@ -3,6 +3,7 @@ import {createPortal} from "react-dom";
 import ModalContent from "./AddCircuitModalContent";
 import '../global.css';
 
+//Add circuit button that opens the add circuit modal
 export default function AddCircuitModal({onCircuitAdded}) {
 
     const [showModal, setShowModal] = useState(false);

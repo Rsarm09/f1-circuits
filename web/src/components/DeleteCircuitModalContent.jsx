@@ -5,6 +5,7 @@ import '../global.css';
 
 export default function DeleteCircuitModalContent({circuit, onClose, onCircuitDeleted}) {
     
+    //grabs the circuit by its id from the database and deletes it
     const handleDeleteCircuit = (event) => {
         event.preventDefault();
 
@@ -19,7 +20,7 @@ export default function DeleteCircuitModalContent({circuit, onClose, onCircuitDe
         })
     }
   
-  
+  //Form for deletion
     return (
         <div className={m["form-container"]}>
             <button onClick={onClose} className='close-button'>X</button>

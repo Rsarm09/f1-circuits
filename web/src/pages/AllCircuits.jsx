@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
+
+//CSS
 import '../global.css';
 import '../RaceBtn.css';
+
+//Modals
 import AddCircuitModal from '../components/AddCircuitModal';
 import CircuitFilters from '../components/CircuitFilters';
 import DeleteCircuitModal from '../components/DeleteCircuitModal';
 import UpdateCircuitModal from '../components/UpdateCircuitModal';
 
+
+
+//All circuits page
 function AllCircuits() {
 
     const [circuits, setCircuits] = useState([]);
     const [filtersOpen, setFiltersOpen] = useState(false);
 
+    //connect to the api
     const fetchCircuits = () => {
         fetch("http://localhost:3000/circuits")
             .then(res => res.json())
@@ -19,6 +27,7 @@ function AllCircuits() {
             })
     }
 
+    //update the circuit information
     const handleUpdatedCircuits = (circuitsArray) => {
         setCircuits(circuitsArray);
     }
@@ -28,24 +37,28 @@ function AllCircuits() {
 
     }, [])
 
+    //scroll to id on click
     const scrollToElement = (id) => {
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({behavior: 'smooth'});
+            element.scrollIntoView({ behavior: 'smooth' });
         }
     }
 
 
     return (
         <>
-            <div className='container'  id='circuit-list'>
-                <div>
+            <div className='container'>
+                <div id='circuit-list'>
+                    {/* Filter drop down*/}
                     <button className="dropdown-btn" onClick={() => setFiltersOpen(!filtersOpen)}>
                         {filtersOpen ? "Filters ▲" : "Filters ▼"}
                     </button>
 
                     {filtersOpen && <CircuitFilters updateCircuits={handleUpdatedCircuits} />}
                 </div>
+
+                {/* Buttons displaying each available circuit */}
                 <div className='racebtn-container' >
                     {circuits.map(circuit => {
                         return (
@@ -58,11 +71,14 @@ function AllCircuits() {
                         )
                     })}
                 </div>
+                {/* Add a circuit modal */}
                 <AddCircuitModal onCircuitAdded={fetchCircuits} />
+
+                {/* Map through all available circuits in the database */}
                 {circuits.map(circuit => {
                     return (
                         <div key={circuit.id} id={circuit.id}>
-                            <img src={`http://localhost:3000/images/${circuit.image}`} alt="" />
+                            <img src={`http://localhost:3000/images/${circuit.image}`} alt={circuit.name} />
                             <h2>{circuit.name}</h2>
                             <h3>{circuit.city}, {circuit.country}</h3>
                             <h4>{circuit.category}</h4>
@@ -74,9 +90,11 @@ function AllCircuits() {
                                 <p>{circuit.length_km} km</p>
                             </div>
                             <div className="btn-container">
+                                {/* Update and delete button for each circuit */}
                                 <UpdateCircuitModal onCircuitUpdated={fetchCircuits} circuit={circuit} />
                                 <DeleteCircuitModal onCircuitDeleted={fetchCircuits} circuit={circuit} />
                             </div>
+                            {/* navigate back to circuit list button */}
                             <button className='full-btn' onClick={() => scrollToElement('circuit-list')}>Back to Circuit List</button>
                         </div>
                     )

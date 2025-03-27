@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import m2 from "./CircuitModalContent.module.css";
 import "../global.css";
 
+//update circuit modal
 export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, circuit }) {
+
+  //state declarations, if the category is not changed or is blank, defaults to blank string if unavailable
+
   const [dbCategories, setDbCategories] = useState([]);
   const [categories, setCategories] = useState(circuit.category_id ?? "");
   const [image, setImage] = useState("");
   const [isNewCategory, setIsNewCategory] = useState(false);
   const [newCategory, setNewCategory] = useState("");
-
   const [circuitName, setCircuitName] = useState(circuit.name ?? "");
   const [circuitCity, setCircuitCity] = useState(circuit.city ?? "");
   const [circuitCountry, setCircuitCountry] = useState(circuit.country ?? "");
@@ -16,6 +19,8 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
   const [circuitTurns, setCircuitTurns] = useState(circuit.turns ?? "");
   const [circuitDescription, setCircuitDescription] = useState(circuit.description ?? "");
 
+
+  //fetches categories
   useEffect(() => {
     fetch("http://localhost:3000/categories")
       .then((res) => res.json())
@@ -28,6 +33,7 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
       });
   }, []);
 
+  //ability to change category/add a new category
   const handleCategorySelectChange = (event) => {
     if (event.target.value === "-1") {
       setIsNewCategory(true);
@@ -38,6 +44,7 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
     }
   };
 
+  //submits form, similar to adding a new circuit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -134,6 +141,22 @@ export default function UpdateCircuitModalContent({ onClose, onCircuitUpdated, c
               id="country"
               value={circuitCountry}
               onChange={(e) => setCircuitCountry(e.target.value)}
+            />
+            <label htmlFor="length_km">Length</label>
+            <input
+              type="int"
+              name="length_km"
+              id="length_km"
+              value={circuitLength}
+              onChange={(e) => setCircuitLength(e.target.value)}
+            />
+            <label htmlFor="turns">turns</label>
+            <input
+              type="int"
+              name="turns"
+              id="turns"
+              value={circuitTurns}
+              onChange={(e) => setCircuitTurns(e.target.value)}
             />
             <label htmlFor="description">Description</label>
             <input

@@ -4,7 +4,7 @@ import '../global.css';
 import m from './UpdateCircuitModalContent.module.css';
 import ModalContent from './UpdateCircuitModalContent';
 
-
+//Update circuit button with modal
 export default function UpdateCircuitModal({onCircuitUpdated, circuit}) {
     const [showModal, setShowModal] = useState(false);
 

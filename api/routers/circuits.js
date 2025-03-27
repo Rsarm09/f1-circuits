@@ -3,6 +3,7 @@ const circuitsRouter = express.Router();
 const db = require('../db');
 const upload = require('../storage');
 
+//Circuit router -> allow users to get all circuits from the data base, create a new circuit, delete a circuit, and get a circuit by its id
 
 circuitsRouter.get('/', (req, res) => {
 
