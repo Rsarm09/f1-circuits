@@ -27,7 +27,6 @@ h3, h4, h5, h6 {
     font-family: 'elza-narrow', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
     font-weight: 600;
 }
 
@@ -51,7 +50,7 @@ h4 {
 }
 
 body {
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .container {
