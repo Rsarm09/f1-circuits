@@ -1,7 +1,7 @@
 import { Navigate } from "react-router";
 import { Component } from "react";
 
-//checks authentication before redirecting to homepage
+//checks authentication before redirecting to homepage  
 const authRequired = (Component) => {
 
     const AuthenticatedComponent = (props) => {
