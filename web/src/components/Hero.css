@@ -1,0 +1,30 @@
+.main-container {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: max-content;
+    padding-top: 5em;
+    padding-bottom: 10em;
+}
+
+.main-title {
+    font-size: 35rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: 'elza-narrow', sans-serif;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 0;
+}
+
+.globe {
+    position: absolute;
+    top: 1em;
+    right: 0;
+    width: 40%;
+    opacity: 40%;
+}

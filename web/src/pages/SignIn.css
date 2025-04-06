@@ -1,0 +1,63 @@
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 1rem;
+    background-color: var(--background-color);
+  }
+  
+  .signin-box {
+    background: #111;
+    padding: 3rem 2rem;
+    border: 1px solid var(--secondary-color);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .signin-title {
+    font-family: "zuume-edge", sans-serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .small {
+    font-family: 'elza-narrow', sans-serif;
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+  }
+  
+  .signin-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-family: 'elza-narrow', sans-serif;
+    font-size: 1rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1rem;
+    background: #1a1a1a;
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-family: 'elza-narrow', sans-serif;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  

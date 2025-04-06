@@ -9,7 +9,7 @@ import AddCircuitModal from '../components/AddCircuitModal';
 import CircuitFilters from '../components/CircuitFilters';
 import DeleteCircuitModal from '../components/DeleteCircuitModal';
 import UpdateCircuitModal from '../components/UpdateCircuitModal';
-import Header from '../components/Header';
+import Hero from '../components/Hero';
 
 
 
@@ -49,7 +49,7 @@ function AllCircuits() {
 
     return (
         <>
-        <Header />
+        <Hero />
             <div className='container'>
                 <div id='circuit-list'>
                     {/* Filter drop down*/}

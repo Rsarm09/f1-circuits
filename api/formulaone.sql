@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 26, 2025 at 08:39 PM
+-- Generation Time: Apr 06, 2025 at 07:19 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -69,6 +69,27 @@ INSERT INTO `circuits` (`id`, `name`, `city`, `country`, `length_km`, `turns`, `
 (10, 'Circuit de Reims Gueux', 'Gueux', 'France', '8.30', 6, '1742603927097.jpg', 2, 'The Circuit de Reims-Gueux was a historic French Grand Prix track used from 1926 to 1972. Known for its long straights and high speeds, the 7.826 km layout favored powerful engines. '),
 (13, 'Circuit Gilles-Villeneuve', 'Montreal', 'Canada', '4.40', 13, '1743021274566.jpg', 1, 'The Canadian Grand Prix was first held at the circuit in 1978, where hometown hero Gilles Villeneuve (1950–1982) won for Scuderia Ferrari. ');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `created_at`) VALUES
+(2, 'rana@admin.com', '$2b$10$UO/E91KrmpjxVQ6BeRe4fuefNmdSN4QR9KWRU0BdKV47zj6gdf2sa', '2025-04-06 07:05:35'),
+(3, 'hiairrick@email.com', '$2b$10$6mx0DGv/Jm0K/yibTsaPbum.fI1MGZP/W9vihWxPUugEqUh8L7Itu', '2025-04-06 07:18:45');
+
 --
 -- Indexes for dumped tables
 --
@@ -86,6 +107,13 @@ ALTER TABLE `circuits`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -100,6 +128,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `circuits`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,19 +1,72 @@
-.main-container {
-    margin: auto;
-    width: 100%;
-    max-width: max-content;
-    padding: 15em 0;
-}
-.main-title {
-    font-size: 35rem;
-    font-weight: 900;
-    line-height: 1;
-}
+    .header {
+        background-color: #0f0f0f;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
-.subtitle {
-    font-family: 'elza-narrow', sans-serif;
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 0;
-}
+    .header-container {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .header-info {
+        display: flex;
+        align-items: center;
+        margin-right: 2rem; 
+    }
+
+
+    .header-tagline {
+        font-family: 'Zen Dots', sans-serif;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+        width: 100%;
+        white-space: nowrap;
+        display: flex;
+        padding-top: 10px;
+    }
+
+    .button {
+        background-color: #f03; 
+        color: #fff;
+        border: none;
+        padding: 0.5rem 3rem;
+        font-size: 1rem;
+        font-family: 'elza-narrow', sans-serif;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin-left: 1rem;
+    }
+
+
+    .login-button {
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+        font-weight: 600;
+    }
+
+    .login-button:hover {
+        background-color: var(--secondary-color);
+        color: var(--accent-color);
+    }
+    .logout-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-tagline {
+            text-align: center;
+        }
+    }
