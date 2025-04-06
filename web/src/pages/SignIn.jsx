@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import './SignIn.css';
 
+
+//sign in form, handles user login and authenticates using the jwt token
 export default function SignIn({handleLogin}) {
 
     const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ export default function SignIn({handleLogin}) {
 
     const navigate = useNavigate();
 
+    //adds jwt token for authentication and login
     const handleSubmit = (e) => {
         e.preventDefault();
         

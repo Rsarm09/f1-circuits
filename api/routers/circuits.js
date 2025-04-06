@@ -37,7 +37,7 @@ circuitsRouter.get('/', (req, res) => {
     });
 });
 
-
+//Post an image to the database
 circuitsRouter.post('/', upload.single('image'), (req, res) => {
 
     const { category_id, name, city, country, length_km, turns, description } = req.body;
@@ -58,6 +58,7 @@ circuitsRouter.post('/', upload.single('image'), (req, res) => {
 
 });
 
+//get individual users by their ids
 circuitsRouter.get('/:id', (req, res) => {
 
     const { id } = req.params;
@@ -81,6 +82,7 @@ circuitsRouter.get('/:id', (req, res) => {
 
 });
 
+//delete users by their ids
 circuitsRouter.delete('/:id', (req, res) => {
     const id = req.params.id;
     const sql = `DELETE FROM circuits WHERE id = ? LIMIT 1`;
@@ -95,6 +97,7 @@ circuitsRouter.delete('/:id', (req, res) => {
     });
 });
 
+//update/replace images based on their ids
 circuitsRouter.put('/:id', upload.single('image'), (req, res) => {
     const {id} = req.params;
 

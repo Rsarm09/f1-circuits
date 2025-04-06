@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import '../global.css';
 import '../RaceBtn.css';
 
-//Modals
+//Modals/components
 import AddCircuitModal from '../components/AddCircuitModal';
 import CircuitFilters from '../components/CircuitFilters';
 import DeleteCircuitModal from '../components/DeleteCircuitModal';

@@ -1,3 +1,6 @@
+//user router used to access the users category in the database
+//allows users to create new accounts and access the database for logins
+
 require("dotenv").config();
 
 const express = require("express");

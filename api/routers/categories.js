@@ -4,6 +4,7 @@ const db = require('../db');
 
 // categories router file -> Allows users to get all categories for filtering and post a new category
 
+//get all categories
 categoriesRouter.get('/', (req, res) => {
     db.query(`SELECT * FROM categories`, (error, results) => {
         if(error) {
@@ -13,6 +14,7 @@ categoriesRouter.get('/', (req, res) => {
     });
 });
 
+//create a new category
 categoriesRouter.post("/", (req, res) => {
     const {name} = req.body;
 

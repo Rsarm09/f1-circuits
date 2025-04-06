@@ -4,6 +4,7 @@ import './SignUp.css';
 
 import { useNavigate } from 'react-router-dom';
 
+//sign up form for creating an account and redirecting to the sign-in page
 function SignUp() {
 
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function SignUp() {
       confirmPassword: ""
   });
 
+  //checks if the password matches parameters before creating an account and posting it to the database
   const handleSubmit = (e) => {
       e.preventDefault();
 
