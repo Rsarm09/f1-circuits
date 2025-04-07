@@ -1,3 +1,6 @@
+F1 circuits is a website with basic CRUD functionality of creating circuits, reading available circuits, updating the available circuits, and deleting circuits. This site has includes a back-end API using expressJS and front-end website using ReactJS and Vite. 
+
+
 To access f1-circuits site:
 1. Start MAMP and access phpmyadmin
 2. Download and import formulaone.sql into phpmyadmin
